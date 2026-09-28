@@ -1,9 +1,6 @@
 from django.contrib import admin
 
-from .models import (
-    Task,
-    Category
-)
+from .models import (Task,Category)
 
 
 @admin.register(Category)
