@@ -17,7 +17,6 @@ class TaskForm(forms.ModelForm):
             "due_date": forms.DateInput(attrs={"type": "date"}),
         }
 
-
 class RegisterForm(forms.ModelForm):
 
     password = forms.CharField(widget=forms.PasswordInput)
@@ -31,8 +30,6 @@ class RegisterForm(forms.ModelForm):
         password = cleaned_data.get("password")
 
         if password:
-            # Run the validators from AUTH_PASSWORD_VALIDATORS (length, common, numeric...).
-            # Passing an unsaved user lets the "too similar to username/email" check work.
             candidate = User(
                 username=cleaned_data.get("username", ""),
                 email=cleaned_data.get("email", ""),

@@ -39,7 +39,6 @@ class TaskListView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # Stats must describe ALL of the user's tasks, not just the filtered list.
         all_tasks = Task.objects.filter(user=self.request.user)
         context["total_tasks"] = all_tasks.count()
         context["completed_tasks"] = all_tasks.filter(completed=True).count()
@@ -63,8 +62,6 @@ def create_task(request):
     return render(request, "tasks/task_form.html", {"form": form})
 
 
-# Changing data with a plain GET link is unsafe (CSRF / link prefetching),
-# so delete and toggle only accept POST requests.
 @login_required
 @require_POST
 def delete_task(request, id):

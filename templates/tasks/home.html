@@ -18,7 +18,6 @@
 </div>
 
 
-<!-- Statistics -->
 <div class="stats">
 
     <div class="stat-card">
@@ -55,8 +54,6 @@
 
 </div>
 
-
-<!-- Search & Filter -->
 <div class="filter-card">
 
     <form method="GET" class="filter-form">
@@ -114,7 +111,6 @@
 </div>
 
 
-<!-- Task Section -->
 <div class="section-header">
     <div>
         <h2>Your Tasks</h2>
@@ -188,7 +184,6 @@
             </div>
 
 
-            <!-- Task Actions (POST + CSRF: never change data with a GET link) -->
             <div class="task-actions">
 
                 <form method="post" action="{% url 'toggle_task' task.id %}" class="inline-form">
